@@ -36,7 +36,8 @@ displayQuestion.addEventListener('click', function (event) {
 function nextQuestion() {
     // questionAndAnswers[0].choices.indexOf('a1') === questionAndAnswers[0].answer
     if (indexOfQuestions < questionAndAnswers.length) {
-        var question = document.createElement('h3');
+        var question = document.createElement('h3')
+        question.classList.add("mystyle");
         var choice = document.createElement('li');
         choice.textContent = questionAndAnswers[0].choices;
         question.textContent = questionAndAnswers[indexOfQuestions].q;
