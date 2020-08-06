@@ -2,14 +2,24 @@ const quizQuestion = document.querySelector("#quiz");
 const startQuiz = document.querySelector("#start-button");
 const displayQuestion = document.querySelector("#next-button");
 const timer = document.querySelector("#time");
-const questionAndAnswers = [{ q: "q1", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q2", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q3", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q4", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q5", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q6", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q7", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q8", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q9", choices: ["a1", "a2", "a3"], answer: 0 }, { q: "q10", choices: ["a1", "a2", "a3"], answer: 0 }];
+const questionAndAnswers = [{ q: `1. What is the object called that lets you work with both dates and time-related data?`, choices: ["Dates", "Time-warp", "Time field", "Clock"], answer: 0 }, { q: `2. What can loops offer JavaScript code as a whole?`, choices: ["Add plug-ins", "Improved performance", "Cleaner syntax", "Cross-platform support"], answer: 1 }, { q: "3. What is the name of the statement that is used to exit or end a loop?", choices: ["Close statement", "Conditional statement", "Falter statement", "Break statement"], answer: 3 }, { q: `4. In JavaScript, what is used in conjunction with HTML to “react” to certain elements?`, choices: ["Events", "RegExp", "Condition", "Boolean"], answer: 0 }, { q: `5. In JavaScript, what element is used to store and manipulate text, usually in multiples?`, choices: ["Variable", "Recorders", "Arrays", "Strings"], answer: 3 }, { q: `6. What is the language or list of instructions that are executed by the computer (how JavaScript is built)?`, choices: ["Syntax", "JSON", "Scope", "Output"], answer: 0 }, { q: `7. What is considered to be the most popular programming language in the world?`, choices: ["Swift", "HTML", "JavaScript", "Ruby"], answer: 2 }, { q: "8. This is what you call the guide that defines coding conventions for all projects.", choices: ["Style guide", "Main textbook", "Coding dictionary", "Developer's Reference"], answer: 3 }, { q: "9. What is the type of loop that continues through a block of code as long as the specified condition remains TRUE?", choices: ["While Loop", "Else Loop", "For Loop", "Conditional Loop"], answer: 0 }, { q: "10. Where is the JavaScript placed inside an HTML document or page?", choices: ["In the <body> and <head> sections.", "In the <meta> section.", "In the <title> section.", "In the <footer> section."], answer: 0 }];
 let indexOfQuestions = 0;
+let score = 0;
 
- 
+//When the Start Button is clicked, it gets hidden and the timer starts counting down
+//When the Start Button is hidden, a question appears
+//When the question appears, four list & button elements get created containing the possible answers
+//Each answer has a button / radio dial / checkbox to click
+//The selected answer gets stored to localStorage or the user is immediately told how they did and a counter keeps track of # correct answers
+//The user clicks 'Next Question' to move to the next question and answers ...
+//The user clicks 'Finish' to end the quiz and stop the timer
+//If the timer counts down to zero, the user receives an alert
+
 startQuiz.addEventListener('click', function (event) {
+    //Now clear the element so it can populate with the next question
     $('#quiz').html('');
     nextQuestion();
-    //The below code hides the 'Start Quiz' button
+    //Hides the 'Start Quiz' button after clicking it
     let x = document.getElementById("start-button");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -26,18 +36,14 @@ displayQuestion.addEventListener('click', function (event) {
 function nextQuestion() {
     // questionAndAnswers[0].choices.indexOf('a1') === questionAndAnswers[0].answer
     if (indexOfQuestions < questionAndAnswers.length) {
-        var question = document.createElement("h3");
+        var question = document.createElement('h3');
+        var choice = document.createElement('li');
+        choice.textContent = questionAndAnswers[0].choices;
         question.textContent = questionAndAnswers[indexOfQuestions].q;
-        if (indexOfQuestions > 0) {
-            //document.getElementById("quiz").removeChild(document.getElementsByTagName("h3"));
-        }
-        document.getElementById("quiz").appendChild(question);
+        document.getElementById("quiz").appendChild(question).appendChild(choice);
         indexOfQuestions++;
     };
 }
-
-
-
 //questionsArray.forEach(questionLoop);
 //document.getElementById("quiz").innerHTML = questionAndAnswers[indexOfQuestions].q;
 
@@ -47,43 +53,9 @@ function nextQuestion() {
 //}
 let timeCounter = 60;
 function timeFunction() {
-    setInterval(timeCounter - 1, 1000);
-}
-
-
-
-/*function startTimer(duration, display) {
-    var start = Date.now(),
-        diff,
-        minutes,
-        seconds;
-    function timer() {
-        // get the number of seconds that have elapsed since
-        // startTimer() was called
-        diff = duration - (((Date.now() - start) / 1000) | 0);
-
-        // does the same job as parseInt truncates the float
-        minutes = (diff / 0) | 0;
-        seconds = (diff % 60) | 0;
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (diff <= 0) {
-            // add one second so that the count down starts at the full duration
-            // example 05:00 not 04:59
-            start = Date.now() + 1000;
-        }
-    };
-    // we don't want to wait a full second before the timer starts
-    timer();
-    setInterval(timer, 1000);
+    setInterval(function () { timeCounter - 1 }, 1000);
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};*/
+    display = document.querySelector('#time');
+};
