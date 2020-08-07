@@ -7,7 +7,7 @@
 body {
   font-size: 14px;
   background: radial-gradient(circle, #33ccff 0%, #ff99cc 100%);
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Baloo 2', cursive;
   text-align: center !important;
 }
 
@@ -19,6 +19,10 @@ h1 {
   justify-content: center;
   font-family: 'Monoton', cursive;
   word-spacing: 10px;
+}
+
+.quizResult {
+  font-family: 'Baloo 2', cursive;
 }
 
 p {

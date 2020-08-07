@@ -6,6 +6,7 @@ const nextDiv = document.querySelector("#hide");
 const timer = document.querySelector("#time");
 const initialInput = document.querySelector("#initials");
 const headerText = document.querySelector("#message");
+const myResult = document.querySelector("#results");
 let secondsLeft = 5;
 let indexOfQuestions = 0;
 let score = 0;
@@ -86,5 +87,6 @@ function endQuiz() {
     document.getElementById("answers").style.display = "none";
     document.getElementById("initials").style.display = "block";
     document.getElementById("message").textContent = "GAME OVER";
+    document.getElementById("results").textContent = `You got ${score} out of 10 questions correct`;
 
 }
