@@ -8,10 +8,17 @@ body {
   font-size: 14px;
   background: radial-gradient(circle, #33ccff 0%, #ff99cc 100%);
   font-family: "Josefin Sans", sans-serif;
+  text-align: center !important;
 }
 
 h1 {
   font-size: 3.5em;
+}
+.quizTitle {
+  display: flex;
+  justify-content: center;
+  font-family: 'Monoton', cursive;
+  word-spacing: 10px;
 }
 
 p {
@@ -19,10 +26,18 @@ p {
   width: 500px;
 }
 
-.myStyle {
-  
+.mybuttons {
+  display: flex;
+  justify-content: center;
 }
 
+#hide {
+  display: none;
+}
+
+#initials {
+  display: none;
+}
 
 
 
