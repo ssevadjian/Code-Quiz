@@ -11,10 +11,9 @@ body {
   text-align: center !important;
 }
 
-h1 {
-  font-size: 3.5em;
-}
 .quizTitle {
+  padding-top: 25px;
+  padding-bottom: 25px;
   display: flex;
   justify-content: center;
   font-family: 'Monoton', cursive;
