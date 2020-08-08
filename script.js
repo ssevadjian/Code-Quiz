@@ -7,8 +7,9 @@ const timer = document.querySelector("#time");
 const initialInput = document.querySelector("#initials");
 const headerText = document.querySelector("#message");
 const myResult = document.querySelector("#results");
-let secondsLeft = 5;
+let secondsLeft = 300;
 let indexOfQuestions = 0;
+let choiceIndex = 0;
 let score = 0;
 
 //When the Start Button is clicked, it gets hidden and the timer starts counting down
@@ -22,7 +23,7 @@ let score = 0;
 
 startQuiz.addEventListener('click', function (event) {
     setTime();
-    myFunction();
+    displayFunction();
     nextQuestion();
     let x = document.getElementById("start-button");
     if (x.style.display === "none") {
@@ -32,7 +33,7 @@ startQuiz.addEventListener('click', function (event) {
     }
 });
 
-function myFunction() {
+function displayFunction() {
     document.getElementById("hide").style.display = "block";
     document.getElementById("hide").style.display = "flex";
   }
@@ -44,8 +45,7 @@ displayQuestion.addEventListener('click', function (event) {
 })
 
 function selectAnswer() {
-    if (questionAndAnswers[indexOfQuestions
-    ].choices[indexOfQuestions] === questionAndAnswers[indexOfQuestions].answer) {
+    if (questionAndAnswers[indexOfQuestions].choices[choiceIndex] === questionAndAnswers[indexOfQuestions].answer) {
         score++;
         console.log(score);
     }
@@ -53,13 +53,13 @@ function selectAnswer() {
 
 function nextQuestion() {
     let currentQuestion = questionAndAnswers[indexOfQuestions];
-    var question = document.createElement('h3')
+    let question = document.createElement('h3')
     question.classList.add("mystyle");
     question.textContent = questionAndAnswers[indexOfQuestions].q;
     let qEL = document.getElementById("quiz").appendChild(question);
     currentQuestion.choices.forEach(function (choice, i) {
-        var choiceNode = document.createElement('button');
-        choiceNode.setAttribute("class", "btnChoice");
+        let choiceNode = document.createElement('button');
+        choiceNode.setAttribute("class", "#btnChoice");
         choiceNode.setAttribute("value", choice)
         choiceNode.textContent = choice;
         answerLis.appendChild(choiceNode);
@@ -68,8 +68,12 @@ function nextQuestion() {
     indexOfQuestions++;
 }
 
+//document.getElementsByClassName("btnChoice").addEventListener(function (event) {
+//    if
+//})
+
 function setTime() {
-    var timerInterval = setInterval(function () {
+    let timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
 
@@ -88,5 +92,4 @@ function endQuiz() {
     document.getElementById("initials").style.display = "block";
     document.getElementById("message").textContent = "GAME OVER";
     document.getElementById("results").textContent = `You got ${score} out of 10 questions correct`;
-
 }
