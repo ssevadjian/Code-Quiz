@@ -34,6 +34,8 @@ The following animation demonstrates the application functionality:
 
 You are required to submit the following for review:
 
-* The URL of the functional, deployed application.
+## Functional URL
+https://ssevadjian.github.io/Code-Quiz/
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+## Github Repository
+https://github.com/ssevadjian/Code-Quiz

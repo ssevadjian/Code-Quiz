@@ -5,9 +5,10 @@ const answerLis = document.querySelector("#answers");
 const nextDiv = document.querySelector("#hide");
 const timer = document.querySelector("#time");
 const initialInput = document.querySelector("#initials");
+const initialTextValue = document.querySelector("#initialsText");
 const headerText = document.querySelector("#message");
 const myResult = document.querySelector("#results");
-let secondsLeft = 300;
+let secondsLeft = 60;
 let indexOfQuestions = 0;
 let choiceIndex = 0;
 let score = 0;
@@ -53,8 +54,11 @@ function selectAnswer() {
 
 function nextQuestion() {
     let currentQuestion = questionAndAnswers[indexOfQuestions];
-    let question = document.createElement('h3')
-    question.classList.add("mystyle");
+    let question = document.createElement('h3');
+    if (questionAndAnswers.length === 9 || secondsLeft < 0){
+        endQuiz();
+        return;
+    }
     question.textContent = questionAndAnswers[indexOfQuestions].q;
     let qEL = document.getElementById("quiz").appendChild(question);
     currentQuestion.choices.forEach(function (choice, i) {
@@ -63,7 +67,15 @@ function nextQuestion() {
         choiceNode.setAttribute("value", choice)
         choiceNode.textContent = choice;
         answerLis.appendChild(choiceNode);
-        //choiceNode.onclick = selectAnswer();
+        choiceNode.addEventListener('click',function (event) {
+            const answer = questionAndAnswers[0].answer;
+            console.log("For Each Answer: " + questionAndAnswers[indexOfQuestions].answer);
+            if (answer === choice) {
+                console.log("answer key: " + answer);
+                console.log("choice: " + choice);
+                score++
+            } 
+        });
     });
     indexOfQuestions++;
 }
@@ -76,7 +88,6 @@ function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
-
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             endQuiz();
@@ -92,4 +103,13 @@ function endQuiz() {
     document.getElementById("initials").style.display = "block";
     document.getElementById("message").textContent = "GAME OVER";
     document.getElementById("results").textContent = `You got ${score} out of 10 questions correct`;
+
 }
+
+const getInput = function (event) {
+    event.preventDefault()
+    let value = initialTextValue.value
+    localStorage.setItem("initialsText", value)
+    console.log(localStorage);
+}
+//initialInput.addEventListener('submit', getInput(event))
