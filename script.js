@@ -26,11 +26,11 @@ startQuiz.addEventListener('click', function (event) {
     setTime();
     displayFunction();
     nextQuestion();
-    startQuiz.document.getElementById("start-button");
-    if (startQuiz.style.display === "none") {
-        startQuiz.style.display = "block";
+    x = document.getElementById("start-button");
+    if (x.style.display === "none") {
+        x.style.display = "block";
     } else {
-        startQuiz.style.display = "none";
+        x.style.display = "none";
     }
 });
 
@@ -60,8 +60,9 @@ function nextQuestion() {
         choiceNode.textContent = choice;
         answerLis.appendChild(choiceNode);
         choiceNode.addEventListener('click',function (event) {
-            const answer = questionAndAnswers[0].answer;
-            console.log("For Each Answer: " + questionAndAnswers[0].answer);
+            let i = questionAndAnswers.length;
+            let answer = questionAndAnswers[i].answer;
+            console.log("For Each Answer: " + questionAndAnswers[i].answer);
             if (answer === choice) {
                 console.log("answer key: " + answer);
                 console.log("choice: " + choice);
