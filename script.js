@@ -60,7 +60,6 @@ function nextQuestion() {
         choiceNode.textContent = choice;
         answerLis.appendChild(choiceNode);
         choiceNode.addEventListener('click',function (event) {
-            let i = questionAndAnswers.length;
             let answer = questionAndAnswers[i].answer;
             console.log("For Each Answer: " + questionAndAnswers[i].answer);
             if (answer === choice) {
