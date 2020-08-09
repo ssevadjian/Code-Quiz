@@ -10,19 +10,10 @@ const submitInitials = document.querySelector("#submitter");
 const myScores = document.querySelector("#scoreList");
 const headerText = document.querySelector("#message");
 const myResult = document.querySelector("#results");
-let secondsLeft = 3;
+let secondsLeft = 60;
 let indexOfQuestions = 0;
 let choiceIndex = 0;
 let score = 0;
-
-//When the Start Button is clicked, it gets hidden and the timer starts counting down
-//When the Start Button is hidden, a question appears
-//When the question appears, four list & button elements get created containing the possible answers
-//Each answer has a button / radio dial / checkbox to click
-//The selected answer gets stored to localStorage or the user is immediately told how they did and a counter keeps track of # correct answers
-//The user clicks 'Next Question' to move to the next question and answers ...
-//The user clicks 'Finish' to end the quiz and stop the timer
-//If the timer counts down to zero, the user receives an alert
 
 startQuiz.addEventListener('click', function (event) {
     setTime();
