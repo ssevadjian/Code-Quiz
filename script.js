@@ -62,7 +62,7 @@ function nextQuestion() {
         answerLis.appendChild(choiceNode);
         choiceNode.addEventListener('click',function (event) {
             const answer = questionAndAnswers[0].answer;
-            console.log("For Each Answer: " + questionAndAnswers[indexOfQuestions].answer);
+            console.log("For Each Answer: " + questionAndAnswers[0].answer);
             if (answer === choice) {
                 console.log("answer key: " + answer);
                 console.log("choice: " + choice);
