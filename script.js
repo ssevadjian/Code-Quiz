@@ -45,13 +45,6 @@ displayQuestion.addEventListener('click', function (event) {
     nextQuestion();
 })
 
-function selectAnswer() {
-    if (questionAndAnswers[indexOfQuestions].choices[choiceIndex] === questionAndAnswers[indexOfQuestions].answer) {
-        score++;
-        console.log(score);
-    }
-}
-
 function nextQuestion() {
     let currentQuestion = questionAndAnswers[indexOfQuestions];
     let question = document.createElement('h3');
@@ -79,10 +72,6 @@ function nextQuestion() {
     });
     indexOfQuestions++;
 }
-
-//document.getElementsByClassName("btnChoice").addEventListener(function (event) {
-//    if
-//})
 
 function setTime() {
     let timerInterval = setInterval(function () {
