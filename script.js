@@ -26,16 +26,15 @@ startQuiz.addEventListener('click', function (event) {
     setTime();
     displayFunction();
     nextQuestion();
-    let x = document.getElementById("start-button");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+    startQuiz.document.getElementById("start-button");
+    if (startQuiz.style.display === "none") {
+        startQuiz.style.display = "block";
     } else {
-        x.style.display = "none";
+        startQuiz.style.display = "none";
     }
 });
 
 function displayFunction() {
-    document.getElementById("hide").style.display = "block";
     document.getElementById("hide").style.display = "flex";
   }
 
