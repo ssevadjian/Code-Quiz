@@ -11,7 +11,9 @@ If the timer counts down to zero, the user is taken to Game Over screen
 
 ## Screenshot
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+![screenshot3](./Assets/screenshot3.png)
+![screenshot2](./Assets/screenshot2.png)
+![screenshot1](./Assets/screenshot1.png)
 
 ## Functional URL
 https://ssevadjian.github.io/Code-Quiz/
