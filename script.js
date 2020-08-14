@@ -9,7 +9,7 @@ const submitInitials = document.querySelector("#submitter");
 const myScores = document.querySelector("#scoreList");
 const headerText = document.querySelector("#message");
 const myResult = document.querySelector("#results");
-let secondsLeft = 3;
+let secondsLeft = 60;
 let indexOfQuestions = 0;
 let score = 0;
 let valueArr = [];
@@ -84,8 +84,8 @@ function endQuiz() {
     document.getElementById("results").textContent = `You got ${score} out of 10 questions correct`;
     document.getElementById("scoreList").style.display = "block"; 
 }
-function saveHighScores(e) {
-    e.preventDefault();
+function saveHighScores() {
+    //e.preventDefault();
     document.getElementById("initials").submit();
     let value = initialInput.value;
     //valueArr.push(value + ` ${score}`);
